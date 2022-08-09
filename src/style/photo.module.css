@@ -1,0 +1,31 @@
+.photo {
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in-out !important;
+  margin: 5px;
+  height: 300px;
+}
+img{
+    width: 250px;
+}
+.alt {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  opacity: 0;
+  background-color: rgba(128, 128, 128, 0.445);
+  text-align: left;
+  width: 100%;
+  color: white;
+
+  transition: 0.3s !important;
+  padding: 5px;
+}
+
+.photo:hover > .alt {
+  opacity: 1;
+  bottom: 0px;
+}
+.photo:hover{
+    opacity: 0.7;
+}
