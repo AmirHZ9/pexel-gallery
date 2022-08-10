@@ -1,15 +1,18 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Photos from "./components/Photos";
-import PhotosContextProvider from "./PhotosContextProvider";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 function App() {
   return <div className="App">
 
 
-<PhotosContextProvider>
+<Provider store={store}>
+
   <Navbar/>
   <Photos/>
-</PhotosContextProvider>
+
+</Provider>
 
 
 
