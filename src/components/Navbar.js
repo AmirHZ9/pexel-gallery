@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import styles from "../style/navbar.module.css";
+// Action
 import fetchPhotos from "../redux/photos/photosAction";
-import pixels from "../assets/logos/pixel.png"
+// PixelsLogo
+import pixels from "../assets/logos/pixel.png";
+// styles
+import styles from "../style/navbar.module.css";
+
 export default function Navbar() {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
@@ -10,6 +15,7 @@ export default function Navbar() {
   return (
     <div className={styles.navbar}>
       <img src={pixels} alt="" className={styles.pixel} />
+      <span>pixel</span>
       <input
         type="text"
         placeholder="Search for free photos"
@@ -23,6 +29,9 @@ export default function Navbar() {
       >
         <i className="bi bi-search"></i>
       </button>
+      <ul>
+        <Link to="/collection">collection</Link>
+      </ul>
     </div>
   );
 }
