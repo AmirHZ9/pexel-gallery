@@ -19,11 +19,16 @@ export default function Photos() {
     <div
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
+
+  
+
       {photos.loading ? (
         <h1>Loading</h1>
       ) : photos.error ? (
         <h1>Error</h1>
-      ) : (
+      ) :
+      
+      (
         photos.photos.map((item) => <Photo key={item.id} photoData={item} />)
       )}
     </div>
