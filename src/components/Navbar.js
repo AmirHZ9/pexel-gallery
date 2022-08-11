@@ -14,8 +14,10 @@ export default function Navbar() {
 
   return (
     <div className={styles.navbar}>
+      <div className={styles.searchSection}>
       <img src={pixels} alt="" className={styles.pixel} />
-      <span>pixel</span>
+      <span className={styles.title}>Pixels</span>
+
       <input
         type="text"
         placeholder="Search for free photos"
@@ -29,9 +31,13 @@ export default function Navbar() {
       >
         <i className="bi bi-search"></i>
       </button>
-      <ul>
+      </div>
+ 
+      <ul className={styles.list}>
         <Link to="/collection">collection</Link>
+        <Link to="#"> Join</Link>
       </ul>
+
     </div>
   );
 }
