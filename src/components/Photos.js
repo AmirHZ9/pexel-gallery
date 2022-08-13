@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchPhotos from "../redux/photos/photosAction";
 // Components
 import Landing from "./Landing";
+import Loader from "./shared/Loader";
 // Logo
 import Photo from "./shared/Photo";
-
+//style
+import styles from "../style/photos.module.css"
 export default function Photos() {
   const photos = useSelector((state) => state.photosState);
   const dispatch = useDispatch();
@@ -15,19 +17,14 @@ export default function Photos() {
     if (!photos.photos.length) dispatch(fetchPhotos("nature"));
   }, []);
 
+  if(photos.loading) return <Loader/>
+  if(photos.Error) return   <h1>Use VPN</h1>
+
   return (
     <>
       <Landing />
-      <div
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-      >
-        {photos.loading ? (
-          <h1>Loading</h1>
-        ) : photos.error ? (
-          <h1>Use VPN</h1>
-        ) : (
-          photos.photos.map((item) => <Photo key={item.id} photoData={item} />)
-        )}
+      <div className={styles.photos}>
+        {photos.photos.map((item) => <Photo key={item.id} photoData={item} />)}
       </div>
     </>
   );
