@@ -1,0 +1,70 @@
+.collection {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.title{
+    text-align: center;
+    margin: 30px;
+    border-bottom:1px solid gray ;
+    padding: 10px;
+}
+.bottomSection button,
+.topSection button {
+  padding: 8px;
+  font-size: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.photo {
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease-in-out !important;
+    margin: 5px;
+  }
+
+.topSection {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  top: -20px;
+  opacity: 0;
+  right: 0;
+  transition: 0.3s ease-in-out;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(0, 0, 0, 0.2389791183294664) 100%
+  );
+}
+.bottomSection {
+  color: white;
+  padding: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: -20px;
+  opacity: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(0, 0, 0, 0.2389791183294664) 100%
+  );
+}
+.photo:hover .bottomSection {
+  opacity: 1;
+  bottom: 0;
+}
+.photo:hover .topSection {
+  opacity: 1;
+  top: 0;
+}

@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Photos from "./components/Photos";
 import Collection from "./components/Collection";
 import Details from "./components/shared/Details";
+import Search from "./components/Search";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Photos />} />
           <Route path="/collection" element={<Collection />} />
           <Route path="/detail/:alt/:id" element={<Details />} />
+          <Route path="/search/:search" element={<Search/>}/>
         </Routes>
       </Provider>
     </div>

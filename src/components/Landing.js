@@ -26,13 +26,12 @@ export default function Landing() {
 
         </div>
       <ul className={styles.linkList}>
-        <li>Trending: </li>
-        <li onClick={() => dispatch(fetchPhotos('coffee'))}> coffee, </li>
-        <li onClick={() => dispatch(fetchPhotos('mountain'))}> mountain, </li>
-        <li onClick={() => dispatch(fetchPhotos('indian flag'))}> indian flag, </li>
-        <li onClick={() => dispatch(fetchPhotos('beach'))}> beach,</li>
-        <li onClick={() => dispatch(fetchPhotos('nature'))}> nature</li>
-
+       <li>Trending: </li>
+       <li><Link to='search/coffee'> coffee, </Link></li> 
+       <li><Link to='search/mountain'> mountain, </Link></li> 
+       <li><Link to='search/indianflag'> indian flag, </Link></li> 
+       <li><Link to='search/beach'> beach,</Link></li> 
+       <li><Link to='search/nature'> nature</Link></li> 
       </ul>
       </div>
     </div>
