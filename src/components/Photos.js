@@ -15,7 +15,7 @@ export default function Photos() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!photos.photos.length) dispatch(fetchPhotos("nature"));
+    if (!photos.photos.length) dispatch(fetchPhotos("nature",1));
   }, []);
 
   if (photos.loading)

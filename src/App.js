@@ -26,7 +26,7 @@ function App() {
 
         </Routes>
         <PageNumbers/>
-        <PaginatedItems/>
+  
       </Provider>
     </div>
   );
