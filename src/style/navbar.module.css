@@ -3,16 +3,32 @@
   justify-content: space-around;
   align-items: center;
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
+  color: white;
+  transition: 0.3s ;
+}
+.navbarMoved {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  color: black;
+  transition: 0.3s ;
+}
+.navbarMoved a {
+  color: black;
 }
 .pixel {
   width: 80px;
 }
-.title{
-    font-size: 25px;
-    font-weight: 600;
-    font-style: italic;
+.title {
+  font-size: 25px;
+  font-weight: 600;
+  font-style: italic;
 }
 .searchBtn {
   border: none;
@@ -22,7 +38,6 @@
   padding: 14px;
   cursor: pointer;
   border-radius: 0 8px 8px 0;
-  margin: 15px 0;
   font-size: 20px;
 }
 .searchBtn:hover {
@@ -34,9 +49,9 @@
   padding: 10px;
   outline: none;
   border-radius: 8px 0 0 8px;
-  width:60%;
+width: 80%;
   padding: 15px;
-  margin: 15px 0;
+
   margin-left: 15px;
   font-size: 20px;
   color: #7f7f7f;
@@ -46,15 +61,21 @@
   display: flex;
   align-items: center;
 }
-.collectionLink{
-color: rgb(255, 255, 255);
-text-decoration: none;
-margin: 0 10px;
-font-size: 20px;
-transition: .3s;
-font-weight: 600;
-
+.collectionLink {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: 0.3s;
+  font-weight: 600;
 }
-.collectionLink:hover{
-    color: #B3B3B3;
+.collectionLink:hover {
+  color: #b3b3b3;
+}
+.searchBoxOnTop {
+  display: none;
+}
+.searchBoxMovedDown {
+  display: block;
+  width: 100%;
 }

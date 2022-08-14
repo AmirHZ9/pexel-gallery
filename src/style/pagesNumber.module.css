@@ -1,0 +1,13 @@
+.pageNumbers{
+    width: 80%;
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+}
+.number{
+    display: inline-block;
+    border: 1px solid silver;
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

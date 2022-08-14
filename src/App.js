@@ -9,7 +9,9 @@ import Photos from "./components/Photos";
 import Collection from "./components/Collection";
 import Details from "./components/shared/Details";
 import Search from "./components/Search";
-
+import Page from "./components/Page";
+import PageNumbers from "./components/shared/PageNumbers";
+import PaginatedItems from "./components/shared/Paginating";
 function App() {
   return (
     <div className="App">
@@ -19,8 +21,12 @@ function App() {
           <Route path="/" element={<Photos />} />
           <Route path="/collection" element={<Collection />} />
           <Route path="/detail/:alt/:id" element={<Details />} />
-          <Route path="/search/:search" element={<Search/>}/>
+          <Route path="/search/:search" element={<Search />} />
+          <Route path="/page/:query/:page" element={<Page />} exact/>
+
         </Routes>
+        <PageNumbers/>
+        <PaginatedItems/>
       </Provider>
     </div>
   );

@@ -9,19 +9,20 @@ const per_page = 51
 const fetchPhotosRequset = () => {
   return { type: "Fetch-Photos-Request" };
 };
-const fetchPhotosSuccess = (photos) => {
-  return { type: "Fetch-Photos-Success", payload: photos };
+const fetchPhotosSuccess = (photos,query) => {
+  return { type: "Fetch-Photos-Success", payload: photos ,query:query };
 };
 const fetchPhotosFailure = (error) => {
   return { type: "Fetch-Photos-Failure", payload: error };
 };
 
-const fetchPhotos = (query) => {
+const fetchPhotos = (query,page) => {
   return async (dispatch) => {
     dispatch(fetchPhotosRequset());
     await client.photos
-      .search({ query, color, per_page })
-      .then((response) => dispatch(fetchPhotosSuccess(response.photos)))
+      .search({ query, color, per_page ,page})
+
+      .then((response) => dispatch(fetchPhotosSuccess(response.photos,query)))
       .catch(error => dispatch(fetchPhotosFailure(error)))
   };
 };

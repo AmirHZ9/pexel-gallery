@@ -2,6 +2,7 @@ const initialState = {
   loading: false,
   photos: [],
   error: false,
+  query:''
 };
 
 const photosReducer = (state = initialState, action) => {
@@ -13,9 +14,11 @@ const photosReducer = (state = initialState, action) => {
       };
     case "Fetch-Photos-Success":
       return {
+        ...state,
         loading: false,
-        photos: action.payload,
+        photos: action.payload, 
         error: false,
+        query:action.query
       };
     case "Fetch-Photos-Failure":
       return {

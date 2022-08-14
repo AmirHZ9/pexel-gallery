@@ -9,7 +9,7 @@ import { addToList } from "../../redux/collection/collectionAction";
 // Styles
 import styles from "../../style/photo.module.css";
 
-export default function Photo({ photoData }) {
+export default function Photo({ photoData }) { 
   const dispatch = useDispatch();
   const collection = useSelector(state => state.collectionState)
 
@@ -17,7 +17,7 @@ export default function Photo({ photoData }) {
   return (
     <div className={styles.photo}>
       <Link to={`/detail/${alt}/${id}`}>
-        <img src={src.portrait} alt="" lazy="load" />
+        <img src={src.portrait} alt={alt} lazy="load" />
       </Link>
       <div className={styles.topSection}>
        {isInCollection(collection,photoData)  ? <button onClick={() => dispatch(addToList(photoData))}><i className="bi bi-file-earmark-minus-fill"></i></button> :
@@ -30,9 +30,9 @@ export default function Photo({ photoData }) {
       </div>
       <div className={styles.bottomSection}>
         <span className={styles.alt}>{photographer}</span>
-        <button>
+        <a href={src.portrait} download>
           <i className="bi bi-download"></i>
-        </button>
+        </a>
       </div>
     </div>
   );
