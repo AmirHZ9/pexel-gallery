@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from "../style/landing.module.css";
-import fetchPhotos from "../redux/photos/photosAction";
-
+import fetchSearchPhotos from "../redux/search/searchAction";
 import image from "../assets/images/pexels.jpeg";
 import { Link } from "react-router-dom";
 export default function Landing() {
@@ -25,12 +24,12 @@ export default function Landing() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
-          <button
-            className={styles.searchBtn}
-            onClick={() => dispatch(fetchPhotos(search))}
-          >
-            <i className="bi bi-search"></i>
-          </button>
+           <Link
+              to={`search/${search}`}
+              className={styles.searchBtn}
+            >
+              <i className="bi bi-search"></i>
+            </Link>
         </div>
         <ul className={styles.linkList}>
           <li>Trending: </li>

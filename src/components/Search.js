@@ -1,28 +1,76 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import fetchSearchPhotos from "../redux/search/searchAction";
-import Loader from "./shared/Loader";
+//Component
 import Photo from "./shared/Photo";
-
+//Styles
+import Loader from "./shared/Loader";
+import { Box, Grid, Typography, Container, Button } from "@mui/material";
 import styles from "../style/photos.module.css";
 export default function Search() {
   const params = useParams();
   const photos = useSelector((state) => state.searchState);
   const dispatch = useDispatch();
   const searchParams = params.search;
+  console.log(photos);
   useEffect(() => {
-    if (!photos.photos.length || params.search !== photos.query)
-      dispatch(fetchSearchPhotos(searchParams,1));
+    if (!photos.photos.length || params.search !== photos.query) {
+      dispatch(fetchSearchPhotos(searchParams, 1));
+    } else if (!searchParams) {
+      dispatch(fetchSearchPhotos(`nature`, 1));
+    }
   }, [searchParams]);
 
-  if (photos.loading) return <Loader />;
+  if (photos.loading)
+    return (
+      <Box className={styles.loader}>
+        <Loader />
+      </Box>
+    );
+
+  if (!photos.photos.length) {
+    return (
+      <Container maxWidth="xl">
+
+      <Grid container className={styles.loader} mt={6} >
+        <Grid item xs={6}>
+          <Typography
+            component="h1"
+            variant="h3"
+            fontWeight={600}
+            fontSize="33px"
+            lineHeight="40px"
+            color="#2c343e"
+           
+            >
+            We couldn’t find anything for "{photos.query}".Try to refine your
+            search.
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Link to="/" >
+            <Button variant="contained">Go to main page</Button>
+          </Link>
+        </Grid> 
+      </Grid>
+            </Container>
+    );
+  }
   return (
-    <div className={styles.photos}>
-      <h1>{photos.query.toUpperCase()}</h1>
-      {photos.photos.map((photo) => (
-        <Photo photoData={photo} key={photo.id} />
-      ))}
-    </div>
+    <Container maxWidth="xl">
+      <Grid container spacing={2}>
+        <Grid item xs={12} mb={2}>
+          <Typography component="h1" variant="h4" fontWeight={700}>
+            {photos.query.toUpperCase()}
+          </Typography>
+        </Grid>
+        {photos.photos.map((photo) => (
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Photo photoData={photo} key={photo.id} />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 }

@@ -1,10 +1,18 @@
-.photos{
+/* .photos{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-}
+} */
 .loader{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.query{
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 36px;
+    letter-spacing: -.015em;
+    color: #2c343e;
+fill: #2c343e;
 }

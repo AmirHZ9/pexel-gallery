@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,Navigate } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
@@ -10,10 +10,12 @@ import Collection from "./components/Collection";
 import Details from "./components/shared/Details";
 import Search from "./components/Search";
 import Page from "./components/Page";
-import PageNumbers from "./components/shared/PageNumbers";
-import PaginatedItems from "./components/shared/Paginating";
+import AppPaginating from "./components/shared/AppPaginating";
+
 function App() {
+
   return (
+    
     <div className="App">
       <Provider store={store}>
         <Navbar />
@@ -22,10 +24,11 @@ function App() {
           <Route path="/collection" element={<Collection />} />
           <Route path="/detail/:alt/:id" element={<Details />} />
           <Route path="/search/:search" element={<Search />} />
-          <Route path="/page/:query/:page" element={<Page />} exact/>
-
+          <Route path="/:query/page/:page" element={<Page />} exact/>
+          <Route  path="/*" element={<Navigate to='search/nature'/>}/>
+          
         </Routes>
-        <PageNumbers/>
+        <AppPaginating/>
   
       </Provider>
     </div>

@@ -23,7 +23,4 @@
 .activeLinks{
     background-color: red;
 }
-.pageNumbers a:hover{
-    background-color: rgba(0, 0, 0, 0.1);
-    text-decoration: underline;
-}
+

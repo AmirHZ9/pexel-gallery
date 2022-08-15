@@ -1,0 +1,30 @@
+.links{
+margin: 50px 0;
+}
+.links .list{
+    display: flex;
+    justify-content: center;
+    list-style-type:none;
+}
+
+.list a{
+    color: #4a4a4a;
+    border: none;
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: .3s;
+}
+.list a:hover{
+    color: black;
+}
+.homeLink{
+    background-color: black;
+    color: white !important;
+    border-radius: 20px;
+}
+.homeLink:hover{
+        background-color: rgba(0, 0, 0, 0.8);
+}

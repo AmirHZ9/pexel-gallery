@@ -2,11 +2,11 @@
   position: relative;
   overflow: hidden;
   transition: 0.3s ease-in-out !important;
-  margin: 5px;
-  height: 400px;
+  margin: 5px 5px 0;
+
 }
 img {
-  width: 300px;
+  width: 100%;
 }
 
 .topSection {
@@ -28,7 +28,7 @@ img {
 .bottomSection button,
 .topSection button {
   padding: 8px;
-  font-size: 15px;
+  font-size: 20px;
   margin: 5px;
   border-radius: 10px;
   border: none;
@@ -37,6 +37,8 @@ img {
 }
 .bottomSection {
   color: white;
+  font-size: 20px;
+  font-weight: 700;
   padding: 5px;
   width: 100%;
   position: absolute;
@@ -56,7 +58,7 @@ img {
 
 .photo:hover .bottomSection {
   opacity: 1;
-  bottom: 0;
+  bottom: 3px;
 }
 .photo:hover .topSection {
   opacity: 1;

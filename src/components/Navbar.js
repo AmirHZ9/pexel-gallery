@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 // PixelsLogo
 import pixels from "../assets/logos/pixel.png";
 // styles
@@ -8,7 +7,6 @@ import styles from "../style/navbar.module.css";
 import Landing from "./Landing";
 export default function Navbar() {
   const [search, setSearch] = useState("");
-  const dispatch = useDispatch();
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
@@ -22,6 +20,7 @@ export default function Navbar() {
 
   return (
     <>
+        <Landing/>
       <div className={scroll ? styles.navbar:styles.navbarMoved}>
         <div className={styles.searchSection}>
           <img src={pixels} alt="" className={styles.pixel} />
@@ -51,7 +50,7 @@ export default function Navbar() {
           collection
         </Link>
       </div>
-      <Landing />
+      
     </>
   );
 }
