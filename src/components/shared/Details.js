@@ -24,7 +24,7 @@ export default function Details() {
 
         {filterSearch.length
           ? filterSearch.map((item) => (
-              <Grid item key={item.id} xs={9} m={3}>
+              <Grid item key={item.id} xs={12} sm={8} md={6} lg={5} m={3}>
                 <img src={item.src.portrait} alt={item.alt} />
                 <Box component="div" display="flex" alignItems="center" mt={2}>
                 <Avatar><CameraAltIcon/></Avatar>
@@ -37,7 +37,7 @@ export default function Details() {
               </Grid>
             ))
           : filterPhotos.map((item) => (
-              <Grid item key={item.id} xs={6} m={3}>
+              <Grid item key={item.id} xs={12} sm={8} md={6} lg={5} m={3}>
                 <img src={item.src.portrait} alt={item.alt} />
               </Grid>
             ))}
