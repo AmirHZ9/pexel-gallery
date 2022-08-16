@@ -1,26 +1,30 @@
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   z-index: 100;
   width: 100%;
-  color: white;
-  transition: 0.3s ;
+  transition: 0.3s;
   top: 0;
+  left: 0;
+  
 }
 .navbarMoved {
   background-color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   z-index: 100;
   width: 100%;
   color: black;
-  transition: 0.3s ;
+  transition: 0.3s;
   top: 0;
-
+  left: 0;
+}
+.navbar a{
+  color: white;
 }
 .navbarMoved a {
   color: black;
@@ -32,8 +36,12 @@
   font-size: 25px;
   font-weight: 600;
   font-style: italic;
+  display: block;
 }
 .searchBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
   border: none;
   outline: none;
   color: black;
@@ -42,20 +50,24 @@
   cursor: pointer;
   border-radius: 0 8px 8px 0;
   font-size: 20px;
+  height: 50px;
 }
 .searchBtn:hover {
   color: #e44242;
 }
 .searchInput {
+  position: absolute;
+  top: 0;
+  left: 0;
   border: none;
   background-color: #f7f7f7;
   padding: 10px;
   outline: none;
   border-radius: 8px 0 0 8px;
-width: 80%;
+  width: calc(100% - 48px) ;
   padding: 15px;
-
   margin-left: 15px;
+  height: 50px;
   font-size: 20px;
   color: #7f7f7f;
 }
@@ -79,6 +91,28 @@ width: 80%;
   display: none;
 }
 .searchBoxMovedDown {
+  position: relative;
   display: block;
+  height: 40px;
   width: 100%;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+
+@media screen and (max-width:900px) {
+  .title{
+    display: none;
+  }
+}
+@media screen and (max-width:600px) {
+  .collectionLink{
+    display: none;
+  }
+.searchSection {
+  width: 90%;
+}}

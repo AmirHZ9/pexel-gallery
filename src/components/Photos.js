@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 // Actions
 import fetchPhotos from "../redux/photos/photosAction";
 // Components
-import Landing from "../components/Landing";
+
+
 import Loader from "./shared/Loader";
 import Links from "./shared/Links";
 // Logo
@@ -46,6 +47,8 @@ export default function Photos() {
           </Grid>
         ))}
       </Grid>
+
+
     </Container>
   );
 }

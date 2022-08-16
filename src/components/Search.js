@@ -8,12 +8,14 @@ import Photo from "./shared/Photo";
 import Loader from "./shared/Loader";
 import { Box, Grid, Typography, Container, Button } from "@mui/material";
 import styles from "../style/photos.module.css";
+
+
 export default function Search() {
   const params = useParams();
   const photos = useSelector((state) => state.searchState);
   const dispatch = useDispatch();
   const searchParams = params.search;
-  console.log(photos);
+
   useEffect(() => {
     if (!photos.photos.length || params.search !== photos.query) {
       dispatch(fetchSearchPhotos(searchParams, 1));
@@ -21,7 +23,6 @@ export default function Search() {
       dispatch(fetchSearchPhotos(`nature`, 1));
     }
   }, [searchParams]);
-
   if (photos.loading)
     return (
       <Box className={styles.loader}>
@@ -33,8 +34,8 @@ export default function Search() {
     return (
       <Container maxWidth="xl">
 
-      <Grid container className={styles.loader} mt={6} >
-        <Grid item xs={6}>
+      <Grid container mt={6} justifyContent="start">
+        <Grid item xs={6} mb={3}>
           <Typography
             component="h1"
             variant="h3"
@@ -50,7 +51,7 @@ export default function Search() {
         </Grid>
         <Grid item xs={12}>
           <Link to="/" >
-            <Button variant="contained">Go to main page</Button>
+            <Button variant="contained" className={styles.mainLink} sx={{"padding":'16px',"fontWeight":700,"fontSize":"16px","border":"1px solid black",letterSpacing: "-.015em"}}>Go to main page</Button>
           </Link>
         </Grid> 
       </Grid>
@@ -66,11 +67,12 @@ export default function Search() {
           </Typography>
         </Grid>
         {photos.photos.map((photo) => (
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Photo photoData={photo} key={photo.id} />
+          <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>
+            <Photo photoData={photo} />
           </Grid>
         ))}
       </Grid>
+
     </Container>
   );
 }

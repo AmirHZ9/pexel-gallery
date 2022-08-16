@@ -1,18 +1,26 @@
-/* .photos{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-} */
-.loader{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.query{
-    font-weight: 600;
-    font-size: 23px;
-    line-height: 36px;
-    letter-spacing: -.015em;
-    color: #2c343e;
-fill: #2c343e;
+.query {
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 36px;
+  letter-spacing: -0.015em;
+  color: #2c343e;
+  fill: #2c343e;
+}
+
+.mainLink {
+  background-color: black !important;
+  border-radius: 0;
+
+  transition: 0.3s;
+}
+
+.mainLink:hover {
+  background-color: white !important;
+  color: black;
+  border-radius: 8px;
 }

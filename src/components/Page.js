@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import fetchSearchPhotos from "../redux/search/searchAction";
 import Photo from "./shared/Photo";
-
+import { Grid } from "@mui/material";
+import { Container } from "@mui/system";
 export default function Page() {
   const params = useParams();
   const dispatch = useDispatch();
@@ -18,12 +19,17 @@ export default function Page() {
   }, [params.page, params.query]);
   if (photos.loading) return <h1>loading</h1>;
   return (
-    <div
+    <Container maxWidth="xl">
+    <Grid container
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
       {photos.photos.map((item) => (
-        <Photo photoData={item} key={item.id} />
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <Photo photoData={item} key={item.id} />
+
+        </Grid>
       ))}
-    </div>
+    </Grid>
+    </Container>
   );
 }

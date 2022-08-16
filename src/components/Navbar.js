@@ -23,8 +23,10 @@ export default function Navbar() {
         <Landing/>
       <div className={scroll ? styles.navbar:styles.navbarMoved}>
         <div className={styles.searchSection}>
+          <Link to="/" className={styles.logo}>
           <img src={pixels} alt="" className={styles.pixel} />
-          <span className={styles.title}>Pixels</span>
+          <span  className={styles.title}>Pixels</span>
+          </Link>
           <div
             className={
               scroll ?  styles.searchBoxOnTop : styles.searchBoxMovedDown

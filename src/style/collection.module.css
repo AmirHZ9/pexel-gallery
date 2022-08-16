@@ -1,18 +1,10 @@
-.collection {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.title{
-    text-align: center;
-    margin: 30px;
-    border-bottom:1px solid gray ;
-    padding: 10px;
+*{
+  box-sizing: border-box;
 }
 .bottomSection button,
 .topSection button {
   padding: 8px;
-  font-size: 15px;
+  font-size: 20px;
   margin: 5px;
   border-radius: 10px;
   border: none;
@@ -20,20 +12,22 @@
   cursor: pointer;
 }
 .photo {
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s ease-in-out !important;
-    margin: 5px;
-  }
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in-out !important;
+  height: fit-content;
+}
 
 .topSection {
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  top: -20px;
+  top: 0;
   opacity: 0;
-  right: 0;
+left: 0;
+  padding: 16px;
+  padding-top: 16px;
   transition: 0.3s ease-in-out;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -47,11 +41,12 @@
   padding: 5px;
   width: 100%;
   position: absolute;
-  bottom: -20px;
+  bottom: 3px;
   opacity: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 16px;
   transition: 0.3s ease-in-out;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -62,7 +57,7 @@
 }
 .photo:hover .bottomSection {
   opacity: 1;
-  bottom: 0;
+
 }
 .photo:hover .topSection {
   opacity: 1;
