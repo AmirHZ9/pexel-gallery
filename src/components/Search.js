@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
+//Action
 import fetchSearchPhotos from "../redux/search/searchAction";
 //Component
 import Photo from "./shared/Photo";
-//Styles
 import Loader from "./shared/Loader";
+//Styles
 import { Box, Grid, Typography, Container, Button } from "@mui/material";
 import styles from "../style/photos.module.css";
 

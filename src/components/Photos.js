@@ -3,16 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 // Actions
 import fetchPhotos from "../redux/photos/photosAction";
 // Components
-
-
 import Loader from "./shared/Loader";
 import Links from "./shared/Links";
-// Logo
 import Photo from "./shared/Photo";
 //style
 import styles from "../style/photos.module.css";
-import { Box, Grid, ImageListItem, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { Box, Grid, Typography,Container } from "@mui/material";
+
 
 export default function Photos() {
   const photos = useSelector((state) => state.photosState);
@@ -42,8 +39,8 @@ export default function Photos() {
           </Typography>
         </Grid>
         {photos.photos.map((item) => (
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Photo key={item.id} photoData={item} />
+          <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+            <Photo  photoData={item} />
           </Grid>
         ))}
       </Grid>

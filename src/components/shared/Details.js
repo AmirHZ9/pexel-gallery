@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Grid, Typography, Box, Avatar } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Photo from "./Photo";
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
-
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import fetchSearchPhotos from "../../redux/search/searchAction";
+import fetchPhotosByID from "../../redux/GetPhotoById/requestByIdAction";
+import Loader from "./Loader";
 
 export default function Details() {
   const params = useParams();
-  const photos = useSelector((state) => state.photosState.photos);
-  const searchPhotos = useSelector((state) => state.searchState.photos);
-  const filterPhotos = photos.filter((item) => item.id == params.id);
-  const filterSearch = searchPhotos.filter((item) => item.id == params.id);
+  const photos = useSelector((state) => state.searchState);
+  const photo = useSelector((state) => state.uniquePhoto);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPhotosByID(params.id));
+    dispatch(fetchSearchPhotos(params.alt, 1));
+  }, [params.alt]);
+  if (photos.loading)
+    return (
+      <Box component='div'  >
+        <Loader />
+      </Box>
+    );
+  if (photo.loading)
+    return (
+      <Box component='div'  >
+        <Loader />
+      </Box>
+    );
 
   return (
     <Container maxWidth="lg">
@@ -22,28 +40,20 @@ export default function Details() {
           </Typography>
         </Grid>
 
-        {filterSearch.length
-          ? filterSearch.map((item) => (
-              <Grid item key={item.id} xs={12} sm={8} md={6} lg={5} m={3}>
-                <img src={item.src.portrait} alt={item.alt} />
-                <Box component="div" display="flex" alignItems="center" mt={2}>
-                <Avatar><CameraAltIcon/></Avatar>
-                <Typography component="p" variant="p" sx={{marginLeft:"10px"}} >
-                {item.photographer}
-
-                </Typography>
-
-                </Box>
-              </Grid>
-            ))
-          : filterPhotos.map((item) => (
-              <Grid item key={item.id} xs={12} sm={8} md={6} lg={5} m={3}>
-                <img src={item.src.portrait} alt={item.alt} />
-              </Grid>
-            ))}
+        <Grid item xs={12} sm={8} md={6} lg={5} m={3}>
+          <img src={photo.photos.src.portrait} alt={photo.photos.alt} />
+        </Grid>
+        <Grid item xs={6} display="flex" alignItems="center">
+          <Avatar>
+            <CameraAltIcon/>
+          </Avatar>
+          <Typography component='p' variant="p" fontWeight={700} sx={{marginLeft:"10px"}}>
+          {photo.photos.photographer}
+          </Typography>
+        </Grid>
       </Grid>
 
-      <Grid container xs={12}>
+      <Grid container>
         <Grid
           item
           xs={12}
@@ -60,10 +70,10 @@ export default function Details() {
             More like this
           </Typography>
         </Grid>
-        {searchPhotos.map((item) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
-            <Photo photoData={item} />
-      
+
+        {photos.photos.map((photo) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>
+            <Photo photoData={photo} />
           </Grid>
         ))}
       </Grid>

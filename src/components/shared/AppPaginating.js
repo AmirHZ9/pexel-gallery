@@ -9,7 +9,10 @@ export default function AppPaginating() {
   const photos = useSelector((state) => state.photosState);
   const [pageNum, setPageNum] = useState("");
   useEffect(() => {
-    if (window.location.href.split("/")[5] == undefined) {
+    if (
+      window.location.href.split("/")[5] == undefined ||
+      window.location.href.split("/")[5] > 20
+    ) {
       setPageNum(1);
     } else if (window.location.href.split("/")[5]) {
       setPageNum(window.location.href.split("/")[5]);
@@ -19,7 +22,7 @@ export default function AppPaginating() {
     setPageNum(value);
     // }
   };
-
+  if (!photosSearch.photos.length && !photos.photos.length) return "";
   if (photosSearch.photos.length)
     return (
       <div className={styles.pageNumbers}>

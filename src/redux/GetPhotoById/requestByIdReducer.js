@@ -2,26 +2,25 @@ const initialState = {
     loading: true,
     photos: [],
     error: false,
-    query:"",
+
   };
   
-  const searchPhotosReducer = (state = initialState, action) => {
+  const photosIDReducer = (state = initialState, action) => {
     switch (action.type) {
-      case "Fetch-Search-Photos-Request":
+      case "Fetch-Photos-ID-Request":
         return {
           ...state,
           loading: true,
         };
-      case "Fetch-Search-Photos-Success":
+      case "Fetch-Photos-ID-Success":
         return {
-            ...state,
+          ...state,
           loading: false,
-          photos: action.payload,
+          photos: action.payload, 
           error: false,
-          query:action.query
-          
+       
         };
-      case "Fetch-Search-Photos-Failure":
+      case "Fetch-Photos-ID-Failure":
         return {
           loading: false,
           error: action.payload,
@@ -31,5 +30,5 @@ const initialState = {
     }
   };
   
-  export default searchPhotosReducer;
+  export default photosIDReducer;
   
