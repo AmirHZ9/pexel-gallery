@@ -21,9 +21,9 @@ export default function Photos() {
 
   if (photos.loading)
     return (
-      <Box className={styles.loader}>
+
         <Loader />
-      </Box>
+ 
     );
   if (photos.Error) return <h1>Use VPN</h1>;
 
