@@ -1,0 +1,19 @@
+.footer {
+  background-color: black;
+  color: white;
+}
+.footer ul {
+  list-style-type: none;
+}
+.footer ul a {
+  color: white;
+  text-decoration: none;
+}
+.footer li {
+    margin-top: 10px;
+}
+.freeStockPhoto a{
+    border: 1px solid white;
+    padding: 5px;
+    margin: 5px 0;
+}
