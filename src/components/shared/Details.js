@@ -4,19 +4,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Photo from "./Photo";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import fetchSearchPhotos from "../../redux/search/searchAction";
+import fetchPhotos from "../../redux/photos/photosAction";
 import fetchPhotosByID from "../../redux/GetPhotoById/requestByIdAction";
 import Loader from "./Loader";
+import AppPaginating from "./AppPaginating";
 
 export default function Details() {
   const params = useParams();
-  const photos = useSelector((state) => state.searchState);
+  const photos = useSelector((state) => state.photosState);
   const photo = useSelector((state) => state.uniquePhoto);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPhotosByID(params.id));
-    dispatch(fetchSearchPhotos(params.alt, 1));
+    dispatch(fetchPhotos(params.alt, 1));
   }, [params.alt]);
   if (photos.loading)
     return (
@@ -77,6 +78,7 @@ export default function Details() {
           </Grid>
         ))}
       </Grid>
+      <AppPaginating/>
     </Container>
   );
 }

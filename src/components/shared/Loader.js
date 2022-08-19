@@ -3,7 +3,7 @@ import { TailSpin } from  'react-loader-spinner'
 
 export default function Loader() {
   return (
-    <div style={{display:'flex',justifyContent:"center",marginTop:"100px"}}>
+    <div style={{display:'flex',justifyContent:"center",margin:"100px 0"}}>
 
 <TailSpin
     height = "120"

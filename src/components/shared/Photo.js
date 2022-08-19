@@ -17,9 +17,7 @@ const loaderHandler =(event) =>{
   setImageLoaded({
     ...imageLoaded,[event.target.alt]:true
   })
-  console.log({
-    ...imageLoaded,[event.target.alt]:true
-  })
+
 }
   const { src, alt, photographer, id } = photoData;
   return (

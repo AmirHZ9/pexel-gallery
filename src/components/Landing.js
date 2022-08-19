@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import styles from "../style/landing.module.css";
-import fetchSearchPhotos from "../redux/search/searchAction";
 import image from "../assets/images/pexels.jpeg";
 import { Link } from "react-router-dom";
 export default function Landing() {
   const [search, setSearch] = useState("");
-  const dispatch = useDispatch();
+
 
   return (
     <div className={styles.landing}>
@@ -27,6 +25,7 @@ export default function Landing() {
            <Link
               to={`search/${search}`}
               className={styles.searchBtn}
+              onClick={() => setSearch('')}
             >
               <i className="bi bi-search"></i>
             </Link>

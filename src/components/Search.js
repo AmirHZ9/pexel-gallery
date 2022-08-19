@@ -2,27 +2,25 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 //Action
-import fetchSearchPhotos from "../redux/search/searchAction";
+import fetchPhotos from "../redux/photos/photosAction";
 //Component
 import Photo from "./shared/Photo";
 import Loader from "./shared/Loader";
 //Styles
 import { Box, Grid, Typography, Container, Button } from "@mui/material";
 import styles from "../style/photos.module.css";
+import AppPaginating from "./shared/AppPaginating";
 
 
 export default function Search() {
   const params = useParams();
-  const photos = useSelector((state) => state.searchState);
+  const photos = useSelector((state) => state.photosState);
   const dispatch = useDispatch();
   const searchParams = params.search;
 
   useEffect(() => {
-    if (!photos.photos.length || params.search !== photos.query) {
-      dispatch(fetchSearchPhotos(searchParams, 1));
-    } else if (!searchParams) {
-      dispatch(fetchSearchPhotos(`nature`, 1));
-    }
+    dispatch(fetchPhotos(searchParams, 1));
+
   }, [searchParams]);
   if (photos.loading)
     return (
@@ -35,7 +33,7 @@ export default function Search() {
     return (
       <Container maxWidth="xl">
 
-      <Grid container mt={6} justifyContent="start">
+      <Grid container m={6} justifyContent="start">
         <Grid item xs={6} mb={3}>
           <Typography
             component="h1"
@@ -73,7 +71,7 @@ export default function Search() {
           </Grid>
         ))}
       </Grid>
-
+<AppPaginating/>
     </Container>
   );
 }

@@ -1,4 +1,4 @@
-import { AppBar, Container,Grid } from "@mui/material";
+import { AppBar, Container, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // PixelsLogo
@@ -21,44 +21,50 @@ export default function Navbar() {
 
   return (
     <>
-      <Landing/>
-    <AppBar   sx={{boxShadow:"none",color:"white"}} className={scroll ? styles.appBar : styles.appBarMoved}>
-      <Container maxWidth="xl"  className={scroll ? styles.navbar:styles.navbarMoved}>
-        <Grid container display='flex' alignItems="center" justifyContent='space-around'>
-
-        <div className={styles.searchSection}>
-          <Link to="/" className={styles.logo}>
-          <img src={pixels} alt="" className={styles.pixel} />
-          <span  className={styles.title}>Pixels</span>
-          </Link>
-          <div
-            className={
-              scroll ?  styles.searchBoxOnTop : styles.searchBoxMovedDown
-            }
+      <Landing />
+      <AppBar
+        sx={{ boxShadow: "none", color: "white" }}
+        className={scroll ? styles.appBar : styles.appBarMoved}
+      >
+        <Container
+          maxWidth="xl"
+          className={scroll ? styles.navbar : styles.navbarMoved}
+        >
+          <Grid
+            container
+            display="flex"
+            alignItems="center"
+            justifyContent="space-around"
           >
-            <input
-              type="text"
-              placeholder="Search for free photos"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-              className={styles.searchInput}
-            />
-            <Link
-              to={`search/${search}`}
-              className={styles.searchBtn}
-            >
-              <i className="bi bi-search"></i>
-            </Link>
-          </div>
-        </div>
+            <div className={styles.searchSection}>
+              <Link to="/home" className={styles.logo}>
+                <img src={pixels} alt="" className={styles.pixel} />
+                <span className={styles.title}>Pixels</span>
+              </Link>
+              <div
+                className={
+                  scroll ? styles.searchBoxOnTop : styles.searchBoxMovedDown
+                }
+              >
+                <input
+                  type="text"
+                  placeholder="Search for free photos"
+                  value={search}
+                  onChange={(event) => setSearch(event.target.value)}
+                  className={styles.searchInput}
+                />
+                <Link to={`search/${search}`} className={styles.searchBtn} onClick={() => setSearch('')}>
+                  <i className="bi bi-search"></i>
+                </Link>
+              </div>
+            </div>
 
-        <Link to="/collection" className={styles.collectionLink}>
-          collection
-        </Link>
-        </Grid>
-      </Container>
-      
-    </AppBar>
+            <Link to="/collection" className={styles.collectionLink}>
+              collection
+            </Link>
+          </Grid>
+        </Container>
+      </AppBar>
     </>
   );
 }

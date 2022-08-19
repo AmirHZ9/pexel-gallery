@@ -22,14 +22,14 @@ function App() {
         <ScrollToTop/>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Photos />} />
-          <Route path="/collection" element={<Collection />} />
+          <Route path="/home" element={<Photos />} />
           <Route path="/detail/:alt/:id" element={<Details />} />
           <Route path="/search/:search" element={<Search />} />
           <Route path="/:query/page/:page" element={<Page />} exact />
           <Route path="/*" element={<Navigate to="search/nature" />} />
+          <Route path="/collection" element={<Collection />} />
         </Routes>
-        <AppPaginating />
+        {/* <AppPaginating /> */}
         <Footer />
       </Provider>
     </div>
