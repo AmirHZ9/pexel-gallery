@@ -29,7 +29,7 @@ export default function Search() {
       </Box>
     );
 
-  if (!photos.photos.length) {
+  if (!photos.photos.photos.length) {
     return (
       <Container maxWidth="xl">
 
@@ -65,7 +65,7 @@ export default function Search() {
             {photos.query.toUpperCase()}
           </Typography>
         </Grid>
-        {photos.photos.map((photo) => (
+        {photos.photos.photos.map((photo) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>
             <Photo photoData={photo} />
           </Grid>

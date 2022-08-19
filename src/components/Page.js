@@ -28,7 +28,7 @@ export default function Page() {
             {params.query}
           </Typography>
       </Grid>
-      {photos.photos.map((item) => (
+      {photos.photos.photos.map((item) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
           <Photo photoData={item} />
 

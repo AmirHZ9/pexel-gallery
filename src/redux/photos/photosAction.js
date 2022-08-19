@@ -4,7 +4,7 @@ const client = createClient(
 );
 
 const color = ""
-const per_page = 51
+const per_page = 50
 
 const fetchPhotosRequset = () => {
   return { type: "Fetch-Photos-Request" };
@@ -22,7 +22,7 @@ const fetchPhotos = (query,page) => {
     await client.photos
       .search({ query, color, per_page ,page})
 
-      .then((response) => dispatch(fetchPhotosSuccess(response.photos,query)))
+      .then((response) => dispatch(fetchPhotosSuccess(response,query)))
       .catch(error => dispatch(fetchPhotosFailure(error)))
   };
 };

@@ -23,7 +23,7 @@ export default function Photos() {
       dispatch(fetchPhotos("nature", 1));
     }
   }, [href]);
-
+console.log(photos.photos)
   if (photos.loading) return <Loader />;
   if (photos.Error) return <h1>Use VPN</h1>;
 
@@ -38,7 +38,7 @@ export default function Photos() {
             {photos.query.toUpperCase()}
           </Typography>
         </Grid>
-        {photos.photos.map((item) => (
+        {photos.photos.photos.map((item) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
             <Photo photoData={item} />
           </Grid>
