@@ -1,27 +1,22 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
   z-index: 100;
   width: 100%;
-  transition: 0.3s;
-  top: 0;
-  left: 0;
-  
+
+
+
 }
 .navbarMoved {
   background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
   z-index: 100;
   width: 100%;
   color: black;
-  transition: 0.3s;
-  top: 0;
-  left: 0;
+;
+}
+.appBar{
+  background-color: transparent !important;
+}
+.appBarMoved{
+  background-color: white !important;
 }
 .navbar a{
   color: white;

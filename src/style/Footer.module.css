@@ -10,10 +10,70 @@
   text-decoration: none;
 }
 .footer li {
-    margin-top: 10px;
+  margin-bottom: 10px;
 }
-.freeStockPhoto a{
-    border: 1px solid white;
-    padding: 5px;
-    margin: 5px 0;
+.footer button:hover{
+    background-color: white;
 }
+.freeStockPhoto ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.freeStockPhoto a {
+  border: 1px solid #bfbfbf;
+  color: #bfbfbf !important;
+  padding: 5px;
+  margin: 1px 2px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: .3s;
+
+}
+.freeStockPhoto a:hover{
+    background-color: #bfbfbf;
+    color: black !important;
+}
+.contactIcon ul {
+  display: flex;
+  margin-top: 10px;
+}
+.contactIcon ul li {
+  margin: 5px;
+}
+.contactIcon ul li svg {
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contactIcon ul li svg:hover {
+  color: #bfbfbf;
+}
+
+.pixels,
+.company {
+  font-size: 21px;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  cursor: pointer;
+}
+.company a,
+.pixels a{
+    transition: .3s;
+}
+.pixels li:hover a,
+.company li:hover a{
+  color: #bfbfbf !important;
+}
+
+.freeStockPhoto li:first-child,
+.pixels li:first-child,
+.company li:first-child {
+  margin-bottom: 25px;
+  font-size: 21px;
+  width: 100%;
+  font-weight: 600;
+  cursor: default;
+}
+

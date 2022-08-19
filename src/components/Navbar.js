@@ -1,3 +1,4 @@
+import { AppBar, Container,Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // PixelsLogo
@@ -20,8 +21,11 @@ export default function Navbar() {
 
   return (
     <>
-        <Landing/>
-      <div className={scroll ? styles.navbar:styles.navbarMoved}>
+      <Landing/>
+    <AppBar   sx={{boxShadow:"none",color:"white"}} className={scroll ? styles.appBar : styles.appBarMoved}>
+      <Container maxWidth="xl"  className={scroll ? styles.navbar:styles.navbarMoved}>
+        <Grid container display='flex' alignItems="center" justifyContent='space-around'>
+
         <div className={styles.searchSection}>
           <Link to="/" className={styles.logo}>
           <img src={pixels} alt="" className={styles.pixel} />
@@ -51,8 +55,10 @@ export default function Navbar() {
         <Link to="/collection" className={styles.collectionLink}>
           collection
         </Link>
-      </div>
+        </Grid>
+      </Container>
       
+    </AppBar>
     </>
   );
 }

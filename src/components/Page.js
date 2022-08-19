@@ -24,8 +24,8 @@ export default function Page() {
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
       {photos.photos.map((item) => (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
-          <Photo photoData={item} key={item.id} />
+        <Grid item xs={12} sm={6} md={4} lg={3} key={item.id} >
+          <Photo photoData={item} />
 
         </Grid>
       ))}

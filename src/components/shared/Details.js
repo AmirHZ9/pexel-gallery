@@ -43,7 +43,7 @@ export default function Details() {
         <Grid item xs={12} sm={8} md={6} lg={5} m={3}>
           <img src={photo.photos.src.portrait} alt={photo.photos.alt} />
         </Grid>
-        <Grid item xs={6} display="flex" alignItems="center">
+        <Grid item xs={12} display="flex" alignItems="center">
           <Avatar>
             <CameraAltIcon/>
           </Avatar>
